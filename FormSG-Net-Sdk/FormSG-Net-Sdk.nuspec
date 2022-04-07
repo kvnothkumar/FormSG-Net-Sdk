@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>FormSG-Net-Sdk</id>
+    <version>1.0.0.0</version>
+    <title>FormSG Net Sdk</title>
+    <authors>kvnothkumar</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <!-- <icon>icon.png</icon> -->
+    <!-- <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>-->
+    <description>SDK to Validate and Decrypt the Webhook messages from FormSG</description>
+    <releaseNotes>First Release</releaseNotes>
+    <copyright>Copyright ©  2022</copyright>
+    <tags>FormSG</tags>
+  </metadata>
+</package>
