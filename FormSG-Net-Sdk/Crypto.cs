@@ -13,6 +13,9 @@ namespace FormSG_Net_Sdk
     {
         private static Byte[] DecryptContent(String submissionPublicKey, String strNonce, String encryptedContent)
         {
+            if (String.IsNullOrEmpty(FormSGConstants.FormSGPrivateKey))
+                throw new WebhookAuthenticateException($"Please initialize the Form SG Private Key");
+
             var publicKey = Convert.FromBase64String(submissionPublicKey);
             var privateKey = Convert.FromBase64String(FormSGConstants.FormSGPrivateKey);
 

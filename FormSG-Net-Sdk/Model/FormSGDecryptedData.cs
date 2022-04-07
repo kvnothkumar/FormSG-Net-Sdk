@@ -21,7 +21,7 @@ namespace FormSG_Net_Sdk
         public string fieldType { get; set; }
         public bool isHeader { get; set; }
         public string[][] answerArray { get; set; }
-        internal string fileUrl { get; set; }
+        public string fileUrl { get; set; }
         public byte[] fileContent { get; set; }
     }
 }

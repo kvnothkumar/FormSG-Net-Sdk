@@ -21,9 +21,15 @@ namespace FormSG_Net_Sdk
 
         public static bool Authenticate(String strSignature, int expiryInMinutes = 0)
         {
+            if (String.IsNullOrEmpty(FormSGConstants.WebHookUri))
+                throw new WebhookAuthenticateException($"Please initialize the Webhook URI");
+
+            if (String.IsNullOrEmpty(FormSGConstants.WebHookPublicKey))
+                throw new WebhookAuthenticateException($"Please initialize the Webhook Public Key");
+
             var parameters = ParseSignature(strSignature);
 
-            if(parameters.Keys.Count != 4)
+            if (parameters.Keys.Count != 4)
                 throw new WebhookAuthenticateException($"Invalid Signature format {strSignature}");
 
             var baseString = $"{FormSGConstants.WebHookUri}.{parameters["s"]}.{parameters["f"]}.{parameters["t"]}";
@@ -38,7 +44,7 @@ namespace FormSG_Net_Sdk
                 throw new WebhookAuthenticateException($"Signature could not be verified for uri={FormSGConstants.WebHookUri} submissionId={parameters["s"]} formId={parameters["f"]} epoch={parameters["t"]} signature=${parameters["v1"]}");
 
             if (expiryInMinutes > 0)
-            { 
+            {
                 bool isExpired = VerifyEpoch(Convert.ToUInt64(parameters["t"]), expiryInMinutes);
 
                 if (isExpired)
@@ -62,7 +68,7 @@ namespace FormSG_Net_Sdk
             }
             catch (Exception ex)
             {
-                
+
             }
 
             return result;
