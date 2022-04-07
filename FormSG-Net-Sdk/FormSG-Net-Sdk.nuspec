@@ -2,16 +2,16 @@
 <package >
   <metadata>
     <id>FormSG-Net-Sdk</id>
-    <version>1.0.0.0</version>
+    <version>1.0.0.1</version>
     <title>FormSG Net Sdk</title>
     <authors>kvnothkumar</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <!-- <icon>icon.png</icon> -->
-    <!-- <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>-->
+     <icon>https://form.gov.sg/public/modules/core/img/logo-horizontal-color.svg</icon> 
+     <projectUrl>https://github.com/kvnothkumar/FormSG-Net-Sdk/</projectUrl>
     <description>SDK to Validate and Decrypt the Webhook messages from FormSG</description>
     <releaseNotes>First Release</releaseNotes>
-    <copyright>Copyright ©  2022</copyright>
+    <copyright>Copyright © 2022</copyright>
     <tags>FormSG</tags>
   </metadata>
 </package>
