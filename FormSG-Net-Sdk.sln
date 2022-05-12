@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormSG-Net-Sdk", "FormSG-Net-Sdk\FormSG-Net-Sdk.csproj", "{66C528CD-A308-40A3-9289-6ADC2D1E676E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormSG-Net-Client", "FormSG-Net-Client\FormSG-Net-Client.csproj", "{5565DE6C-1EF8-45E4-91E8-EE543B9A45D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{66C528CD-A308-40A3-9289-6ADC2D1E676E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66C528CD-A308-40A3-9289-6ADC2D1E676E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66C528CD-A308-40A3-9289-6ADC2D1E676E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5565DE6C-1EF8-45E4-91E8-EE543B9A45D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5565DE6C-1EF8-45E4-91E8-EE543B9A45D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5565DE6C-1EF8-45E4-91E8-EE543B9A45D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5565DE6C-1EF8-45E4-91E8-EE543B9A45D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,7 @@ namespace FormSG_Net_Sdk
     {
         public string submissionId { get; set; }
 
-        public FormSGDecryptedData[] data { get; set; }
+        public List<FormSGDecryptedData> data { get; set; }
     }
 
     public class FormSGDecryptedData

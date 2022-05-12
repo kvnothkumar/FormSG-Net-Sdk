@@ -27,8 +27,10 @@ namespace FormSG_Net_Sdk
             return XSalsa20Poly1305.TryDecrypt(cipherText, key, nonce);
         }
 
-        public static List<FormSGDecryptedData> Decrypt(String payLoad)
+        public static FormSGDencryptedDataModel Decrypt(String payLoad)
         {
+            FormSGDencryptedDataModel result = new FormSGDencryptedDataModel();
+
             var encData = JsonConvert.DeserializeObject<FormSGEncryptedDataModel>(payLoad);
 
             if (encData == null)
@@ -40,24 +42,24 @@ namespace FormSG_Net_Sdk
             var values2 = nonceEncrypted.Split(':');
             string nonce = values2[0], encryptedContent = values2[1];
 
-            var result = DecryptContent(submissionPublicKey, nonce, encryptedContent);
+            var decryptedContent = DecryptContent(submissionPublicKey, nonce, encryptedContent);
 
-            var decryptedData = JsonConvert.DeserializeObject<List<FormSGDecryptedData>>(Encoding.UTF8.GetString(result));
+            result.data = JsonConvert.DeserializeObject<List<FormSGDecryptedData>>(Encoding.UTF8.GetString(decryptedContent));
 
-            foreach (var item in decryptedData)
+            foreach (var item in result.data)
                 if (item.fieldType == "attachment" && !String.IsNullOrEmpty(item.answer))
                     item.fileUrl = encData.data.attachmentDownloadUrls.Where(i => i.Key == item._id).Select(i => i.Value).FirstOrDefault();
 
-            return decryptedData;
+            return result;
         }
 
-        public static List<FormSGDecryptedData> DecryptWithAttachments(String payLoad)
+        public static FormSGDencryptedDataModel DecryptWithAttachments(String payLoad)
         {
             var decryptedData = Decrypt(payLoad);
 
             using (WebClient wc = new WebClient())
             {
-                foreach (var item in decryptedData)
+                foreach (var item in decryptedData.data)
                 {
                     if (!String.IsNullOrEmpty(item.fileUrl))
                     {
