@@ -29,12 +29,13 @@ namespace FormSG_Net_Sdk
 
         public static FormSGDencryptedDataModel Decrypt(String payLoad)
         {
-            FormSGDencryptedDataModel result = new FormSGDencryptedDataModel();
-
             var encData = JsonConvert.DeserializeObject<FormSGEncryptedDataModel>(payLoad);
 
             if (encData == null)
                 throw new InvalidPayLoadException($"Payload is not in the Valid Format");
+
+            FormSGDencryptedDataModel result = new FormSGDencryptedDataModel();
+            result.submissionId = encData.data.submissionId;
 
             var values1 = encData.data.encryptedContent.Split(';');
             string submissionPublicKey = values1[0], nonceEncrypted = values1[1];
