@@ -16,7 +16,7 @@ namespace FormSG_Net_Sdk
         public string formId { get; set; }
         public string submissionId { get; set; }
         public string encryptedContent { get; set; }
-        public int version { get; set; }
+        public decimal version { get; set; }
         public DateTime created { get; set; }
         public Dictionary<String, String> attachmentDownloadUrls { get; set; }
     }
